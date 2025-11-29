@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import CommandReference from "@/components/command-reference";
 import { Logo } from "@/components/logo";
+import { HeroAnimation } from "@/components/hero-animation";
+import { FeatureCards } from "@/components/feature-cards";
 
 export default function Home() {
   const features = [
@@ -63,19 +65,8 @@ export default function Home() {
       </header>
       
       <main className="flex-1">
-        <section className="container text-center py-20 md:py-32 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <div className="flex flex-col gap-4 items-center">
-            <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
-              The All-in-One Discord Bot
-            </h1>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl">
-              Meet ChronoBot. Enhance your server with advanced music, powerful moderation, and full automation in one sleek package.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <Button size="lg" className="font-bold">Add to Discord</Button>
-              <Button size="lg" variant="outline">Learn More</Button>
-            </div>
-          </div>
+        <section className="container text-center py-20 md:py-32">
+          <HeroAnimation />
         </section>
 
         <section id="features" className="py-20 md:py-32 bg-secondary/50">
@@ -86,19 +77,7 @@ export default function Home() {
                 ChronoBot is packed with features to create a vibrant and secure community.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, i) => (
-                <Card key={feature.title} className="bg-card/50 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 ease-in-out shadow-lg" style={{ animationDelay: `${i * 100}ms` }}>
-                  <CardHeader className="flex flex-col items-center text-center gap-4">
-                    {feature.icon}
-                    <CardTitle>{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <FeatureCards features={features} />
           </div>
         </section>
 

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Search } from "lucide-react";
+import anime from "animejs";
 
 const commands = [
   { category: "Music", name: "/play", description: "Plays a song from YouTube, Spotify, etc." },
@@ -24,6 +25,19 @@ const commands = [
 
 export default function CommandReference() {
   const [searchTerm, setSearchTerm] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      anime({
+        targets: containerRef.current.children,
+        translateY: [20, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(100, { start: 300 }),
+        easing: 'easeOutExpo'
+      });
+    }
+  }, []);
 
   const groupedCommands = useMemo(() => {
     const filteredCommands = commands.filter(
@@ -43,7 +57,7 @@ export default function CommandReference() {
   }, [searchTerm]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto" ref={containerRef}>
       <div className="relative mb-8">
         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input
