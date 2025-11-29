@@ -5,6 +5,7 @@ import { FeatureCards } from "@/components/feature-cards";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Particles } from "@/components/particles";
 
 export default function Home() {
   const features = [
@@ -42,7 +43,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
-      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-br from-primary/20 via-transparent to-transparent -z-10" />
+      <Particles className="absolute inset-0 -z-10" />
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
           <div className="flex items-center gap-3">
@@ -50,8 +51,9 @@ export default function Home() {
             <p className="text-xl font-bold font-headline">Arrkiii</p>
           </div>
           <div className="hidden md:block">
-            <Button>
-              Add to Discord <ArrowRight />
+            <Button className="group">
+              Add to Discord 
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
           <div className="md:hidden">
@@ -84,7 +86,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
 
-        <section id="features" className="py-20 md:py-32 bg-secondary/80">
+        <section id="features" className="py-20 md:py-32 bg-secondary/20">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <h2 className="font-headline text-3xl md:text-5xl font-extrabold">Everything Your Server Needs</h2>
