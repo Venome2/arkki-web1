@@ -55,7 +55,7 @@ export default function Home() {
       </header>
       
       <main className="flex-1">
-        <section className="container text-center py-24 md:py-40">
+        <section className="container text-center py-24 md:py-40 flex justify-center items-center min-h-[400px]">
           <HeroAnimation />
         </section>
 
