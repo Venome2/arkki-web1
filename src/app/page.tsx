@@ -1,9 +1,10 @@
-import { Music, Palette, Shield, Zap, Gamepad2, PencilRuler } from "lucide-react";
+import { Music, Palette, Shield, Zap, Gamepad2, PencilRuler, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { FeatureCards } from "@/components/feature-cards";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Home() {
   const features = [
@@ -48,9 +49,32 @@ export default function Home() {
             <Logo />
             <p className="text-xl font-bold font-headline">Arrkiii</p>
           </div>
-          <Button>
-            Add to Discord <ArrowRight />
-          </Button>
+          <div className="hidden md:block">
+            <Button>
+              Add to Discord <ArrowRight />
+            </Button>
+          </div>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="grid gap-4 py-6">
+                  <div className="flex items-center gap-3">
+                    <Logo />
+                    <p className="text-xl font-bold font-headline">Arrkiii</p>
+                  </div>
+                  <Button>
+                    Add to Discord <ArrowRight />
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
       
