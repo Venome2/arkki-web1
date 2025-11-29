@@ -46,10 +46,10 @@ export function FeatureCards({ features }: { features: Feature[] }) {
     return (
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature) => (
-                <Card key={feature.title} className="bg-card/50 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 ease-in-out shadow-lg opacity-0">
+                <Card key={feature.title} className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 ease-in-out shadow-lg opacity-0 border border-transparent hover:border-primary/50">
                     <CardHeader className="flex flex-col items-center text-center gap-4">
                         {feature.icon}
-                        <CardTitle>{feature.title}</CardTitle>
+                        <CardTitle className="font-headline">{feature.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="text-center">
                         <p className="text-muted-foreground">{feature.description}</p>

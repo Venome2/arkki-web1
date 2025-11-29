@@ -29,13 +29,25 @@ export default function CommandReference() {
 
   useEffect(() => {
     if (containerRef.current) {
-      anime({
-        targets: containerRef.current.children,
-        translateY: [20, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(100, { start: 300 }),
-        easing: 'easeOutExpo'
-      });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target.children,
+                            translateY: [20, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100, { start: 200 }),
+                            easing: 'easeOutExpo'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
     }
   }, []);
 
@@ -58,7 +70,7 @@ export default function CommandReference() {
 
   return (
     <div className="w-full max-w-4xl mx-auto" ref={containerRef}>
-      <div className="relative mb-8">
+      <div className="relative mb-8 opacity-0">
         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input
           type="text"
@@ -70,13 +82,13 @@ export default function CommandReference() {
       </div>
       
       {Object.keys(groupedCommands).length > 0 ? (
-        <div className="space-y-6">
+        <div className="space-y-6 opacity-0">
           {Object.entries(groupedCommands).map(([category, cmds]) => (
             <div key={category}>
               <h3 className="text-2xl font-bold mb-4 text-primary font-headline">{category}</h3>
               <Accordion type="single" collapsible className="w-full space-y-2">
                 {cmds.map((cmd) => (
-                  <AccordionItem key={cmd.name} value={cmd.name} className="border bg-secondary/50 rounded-lg px-4 data-[state=open]:border-primary/50 transition-colors">
+                  <AccordionItem key={cmd.name} value={cmd.name} className="border bg-card rounded-lg px-4 data-[state=open]:border-primary/50 transition-colors shadow-sm hover:border-primary/50">
                     <AccordionTrigger className="text-lg font-mono hover:no-underline py-4">{cmd.name}</AccordionTrigger>
                     <AccordionContent className="text-muted-foreground text-base pb-4">
                       {cmd.description}
@@ -88,7 +100,7 @@ export default function CommandReference() {
           ))}
         </div>
       ) : (
-        <p className="text-center text-muted-foreground text-lg py-8">No commands found matching your search.</p>
+        <p className="text-center text-muted-foreground text-lg py-8 opacity-0">No commands found matching your search.</p>
       )}
     </div>
   );

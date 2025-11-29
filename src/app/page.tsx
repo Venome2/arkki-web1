@@ -1,10 +1,10 @@
 import { Bot, Gavel, Music, Palette, Shield, Database, Smile, PartyPopper } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import CommandReference from "@/components/command-reference";
 import { Logo } from "@/components/logo";
 import { HeroAnimation } from "@/components/hero-animation";
 import { FeatureCards } from "@/components/feature-cards";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   const features = [
@@ -52,27 +52,28 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-          <div className="flex items-center gap-2">
+      <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-br from-primary/20 via-transparent to-transparent -z-10" />
+      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
+        <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+          <div className="flex items-center gap-3">
             <Logo />
             <p className="text-xl font-bold font-headline">ChronoBot</p>
           </div>
           <Button>
-            Add to Discord
+            Add to Discord <ArrowRight />
           </Button>
         </div>
       </header>
       
       <main className="flex-1">
-        <section className="container text-center py-20 md:py-32">
+        <section className="container text-center py-24 md:py-40">
           <HeroAnimation />
         </section>
 
-        <section id="features" className="py-20 md:py-32 bg-secondary/50">
+        <section id="features" className="py-20 md:py-32 bg-secondary/80">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center mb-12">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold">Everything Your Server Needs</h2>
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <h2 className="font-headline text-3xl md:text-5xl font-extrabold">Everything Your Server Needs</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 ChronoBot is packed with features to create a vibrant and secure community.
               </p>
@@ -83,8 +84,8 @@ export default function Home() {
 
         <section id="commands" className="py-20 md:py-32">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center mb-12">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold">Command Reference</h2>
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <h2 className="font-headline text-3xl md:text-5xl font-extrabold">Command Reference</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Find all the commands you need to master ChronoBot.
               </p>
