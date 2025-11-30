@@ -64,14 +64,14 @@ export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: He
               <span className="loader"></span>
             </div>
           ) : (
-            <div ref={heroRef} className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
+            <div ref={heroRef} className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
                 <div data-animate className="inline-block bg-primary/10 text-primary font-medium text-sm px-4 py-2 rounded-full opacity-0">
                     {badge}
                 </div>
                 <h1 ref={titleRef} data-animate className="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight opacity-1">
                   {title}
                 </h1>
-                <p data-animate className="max-w-[700px] text-muted-foreground md:text-xl opacity-0">
+                <p data-animate className="max-w-2xl text-muted-foreground md:text-xl opacity-0">
                   {description}
                 </p>
                 <div data-animate className="flex flex-col sm:flex-row gap-4 mt-6 opacity-0">
