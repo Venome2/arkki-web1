@@ -76,7 +76,7 @@ export default function DocumentsPage() {
         <div className="container py-20 md:py-32">
           <div className="max-w-4xl mx-auto">
             <h1 ref={titleRef} className="font-headline text-4xl md:text-6xl font-extrabold text-center mb-8">{docs.title}</h1>
-            <p className="text-lg text-muted-foreground text-center mb-16">
+            <p className="text-lg text-muted-foreground text-center mb-16 max-w-3xl mx-auto">
               {docs.description}
             </p>
 

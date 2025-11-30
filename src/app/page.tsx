@@ -36,12 +36,11 @@ export default function Home() {
           title={hero.title}
           description={hero.description}
           ctaPrimary={hero.ctaPrimary}
-          ctaSecondary={hero.ctaSecondary}
         />
 
         <section id="features" className="py-20 md:py-32 bg-secondary/20">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center mb-16">
+            <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="font-headline text-3xl md:text-5xl font-extrabold">{featuresSection.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 {featuresSection.description}

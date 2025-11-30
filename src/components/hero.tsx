@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import anime from 'animejs';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -10,25 +10,14 @@ interface HeroProps {
     title: string;
     description: string;
     ctaPrimary: string;
-    ctaSecondary: string;
 }
 
-export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: HeroProps) {
+export function Hero({ badge, title, description, ctaPrimary }: HeroProps) {
     const heroRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
-    const [showLoader, setShowLoader] = useState(true);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowLoader(false);
-        }, 500);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    useEffect(() => {
-        if (!showLoader && heroRef.current && titleRef.current) {
-            // Animate hero content
+        if (heroRef.current && titleRef.current) {
             anime({
                 targets: heroRef.current.querySelectorAll('[data-animate]'),
                 translateY: [20, 0],
@@ -38,7 +27,6 @@ export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: He
                 easing: 'easeOutExpo'
             });
 
-            // Animate title letters
             const titleEl = titleRef.current;
             if (titleEl.textContent) {
                 titleEl.innerHTML = titleEl.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -55,15 +43,10 @@ export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: He
                     });
             }
         }
-    }, [showLoader]);
+    }, []);
     
     return (
         <section className="container py-24 md:py-40">
-          {showLoader ? (
-            <div className="flex justify-center items-center h-[280px]">
-              <span className="loader"></span>
-            </div>
-          ) : (
             <div ref={heroRef} className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
                 <div data-animate className="inline-block bg-primary/10 text-primary font-medium text-sm px-4 py-2 rounded-full opacity-0">
                     {badge}
@@ -71,7 +54,7 @@ export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: He
                 <h1 ref={titleRef} data-animate className="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight opacity-1">
                   {title}
                 </h1>
-                <p data-animate className="max-w-2xl text-muted-foreground md:text-xl opacity-0">
+                <p data-animate className="max-w-3xl text-muted-foreground md:text-xl opacity-0">
                   {description}
                 </p>
                 <div data-animate className="flex flex-col sm:flex-row gap-4 mt-6 opacity-0">
@@ -79,10 +62,8 @@ export function Hero({ badge, title, description, ctaPrimary, ctaSecondary }: He
                     {ctaPrimary}
                     <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
-                  <Button size="lg" variant="outline" className="font-bold text-base">{ctaSecondary}</Button>
                 </div>
-              </div>
-          )}
+            </div>
         </section>
     );
 }

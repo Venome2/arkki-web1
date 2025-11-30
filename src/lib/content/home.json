@@ -3,8 +3,7 @@
     "badge": "A feature-rich, modern Discord bot",
     "title": "Arrkiii Latest",
     "description": "A feature-rich, modern Discord bot with a beautiful UI, best-in-class music system, advanced moderation, and automation tools. Built with the latest JavaScript libraries and MongoDB for performance and reliability.",
-    "ctaPrimary": "Add to Discord",
-    "ctaSecondary": "Learn More"
+    "ctaPrimary": "Add to Discord"
   },
   "featuresSection": {
     "title": "Everything Your Server Needs",
