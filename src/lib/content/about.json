@@ -1,5 +1,5 @@
 {
-    "title": "About Arrkiii",
+    "title": "About BAILAY",
     "subtitle": "Discover the story, mission, and the technology that powers the most advanced Discord bot.",
     "sections": [
       {
@@ -8,7 +8,7 @@
       },
       {
         "title": "The Technology",
-        "content": "Arrkiii is built on a foundation of modern and robust technologies to ensure performance, stability, and scalability. We leverage the power of Node.js and the discord.js library for core bot functionality. Our music system is powered by Kazagumo and Shoukaku for lag-free, high-fidelity audio. For data persistence, we rely on Mongoose and MongoDB, ensuring your server's data is always safe and quickly accessible."
+        "content": "BAILAY is built on a foundation of modern and robust technologies to ensure performance, stability, and scalability. We leverage the power of Node.js and the discord.js library for core bot functionality. Our music system is powered by Kazagumo and Shoukaku for lag-free, high-fidelity audio. For data persistence, we rely on Mongoose and MongoDB, ensuring your server's data is always safe and quickly accessible."
       },
       {
         "title": "The Team",
