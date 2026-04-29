@@ -15,7 +15,7 @@ export function Header() {
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Logo />
-          <p className="text-xl font-bold font-headline">Arrkiii</p>
+          <p className="text-xl font-bold font-headline">BAILEY</p>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -48,7 +48,7 @@ export function Header() {
               <div className="grid gap-4 py-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Logo />
-                  <p className="text-xl font-bold font-headline">Arrkiii</p>
+                  <p className="text-xl font-bold font-headline">BAILEY</p>
                 </div>
                 <nav className="grid gap-4">
                   {headerLinks.map(link => (
