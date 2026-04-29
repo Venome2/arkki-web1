@@ -72,7 +72,7 @@ export default function AboutPage() {
             <div data-animate-group>
               <Image 
                 src="https://picsum.photos/seed/about-us/1200/600" 
-                alt="About Arrkiii" 
+                alt="About BAILEY" 
                 width={1200}
                 height={600}
                 className="rounded-lg shadow-2xl mb-16 opacity-0"
